@@ -1,3 +1,6 @@
+from itertools import combinations
+
+
 def day03_1(lines):
     sum_of_joltages = 0
     for line in lines:
@@ -5,20 +8,9 @@ def day03_1(lines):
     return sum_of_joltages
 
 
-from itertools import combinations
-
-
 def battery_2(line):
     possible_joltages_for_array = set()
     for comb in combinations(line, 2):
-        joltage = "".join(comb)
-        possible_joltages_for_array.add(int(joltage))
-    return max(possible_joltages_for_array)
-
-
-def battery_12(line):
-    possible_joltages_for_array = set()
-    for comb in combinations(line, 12):
         joltage = "".join(comb)
         possible_joltages_for_array.add(int(joltage))
     return max(possible_joltages_for_array)
