@@ -6,6 +6,7 @@ def read_data(file_name):
 
     return lines
 
+
 def day01_1(current_position, lines):
     zero_counter = 0
     positions = []
@@ -38,7 +39,7 @@ def day01_2(current_position, lines):
     for line in lines:
         if "L" in line:
             change = int(line.replace("L", ""))
-            increment = - ( change % 100 )
+            increment = -(change % 100)
         if "R" in line:
             change = int(line.replace("R", ""))
             increment = change % 100
@@ -57,12 +58,10 @@ def day01_2(current_position, lines):
         else:
             current_position = new_position
 
-
         if current_position == 0:
             zero_counter += 1
 
         positions.append((line, current_position, zero_counter))
-
 
     return positions, zero_counter
 
