@@ -2,6 +2,7 @@ DIAL_MIN = 0
 DIAL_MAX = 99
 DIAL_SIZE = DIAL_MAX + 1
 
+
 def read_data_01(file_name: str) -> list[str]:
     """Read input data for day01."""
     with open(file_name) as my_file:
@@ -10,17 +11,27 @@ def read_data_01(file_name: str) -> list[str]:
 
     return lines
 
-def day01_1(current_position: int, lines: list[str]) -> tuple[list[tuple[str, int]], int]:
+
+def calculate_change_and_increment_for_rotation(rotation: str) -> tuple[int, int]:
+    if "L" in rotation:
+        change = int(rotation.replace("L", ""))
+        increment = -(change % DIAL_SIZE)
+    if "R" in rotation:
+        change = int(rotation.replace("R", ""))
+        increment = change % DIAL_SIZE
+
+    return change, increment
+
+
+def day01_1(
+    current_position: int, lines: list[str]
+) -> tuple[list[tuple[str, int]], int]:
     """Solve first part of the puzzle for day01."""
     zero_counter = 0
     positions = []
-    for line in lines:
-        if "L" in line:
-            increment = int(line.replace("L", "")) % DIAL_SIZE
-            new_position = current_position - increment
-        if "R" in line:
-            increment = int(line.replace("R", "")) % DIAL_SIZE
-            new_position = current_position + increment
+    for rotation in lines:
+        change, increment = calculate_change_and_increment_for_rotation(rotation)
+        new_position = current_position + increment
 
         if new_position < DIAL_MIN:
             current_position = abs(DIAL_MAX + new_position + 1)
@@ -29,7 +40,7 @@ def day01_1(current_position: int, lines: list[str]) -> tuple[list[tuple[str, in
         else:
             current_position = new_position
 
-        positions.append((line, current_position))
+        positions.append((rotation, current_position))
 
         if current_position == DIAL_MIN:
             zero_counter += 1
@@ -37,17 +48,14 @@ def day01_1(current_position: int, lines: list[str]) -> tuple[list[tuple[str, in
     return positions, zero_counter
 
 
-def day01_2(current_position: int, lines: list[str]) -> tuple[list[tuple[str, int]], int]:
+def day01_2(
+    current_position: int, lines: list[str]
+) -> tuple[list[tuple[str, int]], int]:
     """Solve second part of the puzzle for day01."""
     zero_counter = 0
     positions = []
-    for line in lines:
-        if "L" in line:
-            change = int(line.replace("L", ""))
-            increment = - ( change % DIAL_SIZE )
-        if "R" in line:
-            change = int(line.replace("R", ""))
-            increment = change % DIAL_SIZE
+    for rotation in lines:
+        change, increment = calculate_change_and_increment_for_rotation(rotation)
         new_position = current_position + increment
         zero_counter += change // DIAL_SIZE
 
@@ -63,12 +71,10 @@ def day01_2(current_position: int, lines: list[str]) -> tuple[list[tuple[str, in
         else:
             current_position = new_position
 
-
         if current_position == DIAL_MIN:
             zero_counter += 1
 
-        positions.append((line, current_position, zero_counter))
-
+        positions.append((rotation, current_position, zero_counter))
 
     return positions, zero_counter
 
@@ -85,10 +91,10 @@ if __name__ == "__main__":
     print(positions)
     print(zero_counter)
 
-    # positions, zero_counter = day01_2(current_position, lines)
-    # print("====PART 2====")
-    # print(positions)
-    # print(zero_counter)
+    positions, zero_counter = day01_2(current_position, lines)
+    print("====PART 2====")
+    print(positions)
+    print(zero_counter)
 
     # file_name = "data/aoc2025/input01_puzzle.txt"
     # lines = read_data_01(file_name)
