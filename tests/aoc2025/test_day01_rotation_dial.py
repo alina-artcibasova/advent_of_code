@@ -1,4 +1,9 @@
-from aoc.aoc2025.day01_rotation_dial import read_data_01, day01_1, day01_2
+from aoc.aoc2025.day01_rotation_dial import (
+    read_data_01,
+    day01_1,
+    day01_2,
+    calculate_change_and_increment_for_rotation,
+)
 import pytest
 import os
 
@@ -20,6 +25,18 @@ def test_read_data_01():
         "L1000",
     ]
     assert read_lines == expected_lines
+
+
+@pytest.mark.parametrize(
+    "rotation,change,increment",
+    [
+        ("L68", 68, -68),
+        ("R60", 60, 60),
+        ("R1000", 1000, 0),
+    ],
+)
+def test_calculate_change_and_increment_for_rotation(rotation, change, increment):
+    assert change, increment == calculate_change_and_increment_for_rotation(rotation)
 
 
 def test_day01_1():
