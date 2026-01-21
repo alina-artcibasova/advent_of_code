@@ -8,9 +8,9 @@ import pytest
 import os
 
 
-def test_read_data_01():
-    read_lines = read_data_01(os.getcwd() + "/data/aoc2025/input01_test.txt")
-    expected_lines = [
+@pytest.fixture
+def test_input():
+    return [
         "L68",
         "L30",
         "R48",
@@ -24,7 +24,11 @@ def test_read_data_01():
         "R1000",
         "L1000",
     ]
-    assert read_lines == expected_lines
+
+
+def test_read_data_01(test_input):
+    read_lines = read_data_01(os.getcwd() + "/data/aoc2025/input01_test.txt")
+    assert read_lines == test_input
 
 
 @pytest.mark.parametrize(
@@ -39,21 +43,7 @@ def test_calculate_change_and_increment_for_rotation(rotation, change, increment
     assert change, increment == calculate_change_and_increment_for_rotation(rotation)
 
 
-def test_day01_1():
-    test_input = [
-        "L68",
-        "L30",
-        "R48",
-        "L5",
-        "R60",
-        "L55",
-        "L1",
-        "L99",
-        "R14",
-        "L82",
-        "R1000",
-        "L1000",
-    ]
+def test_day01_1(test_input):
     positions, zero_counter = day01_1(50, test_input)
     assert positions == [
         ("L68", 82),
@@ -72,21 +62,7 @@ def test_day01_1():
     assert zero_counter == 3
 
 
-def test_day01_2():
-    test_input = [
-        "L68",
-        "L30",
-        "R48",
-        "L5",
-        "R60",
-        "L55",
-        "L1",
-        "L99",
-        "R14",
-        "L82",
-        "R1000",
-        "L1000",
-    ]
+def test_day01_2(test_input):
     positions, zero_counter = day01_2(50, test_input)
     assert positions == [
         ("L68", 82, 1),
