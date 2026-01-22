@@ -40,7 +40,7 @@ def day01_1(
         else:
             current_position = new_position
 
-        positions.append((rotation, current_position))
+        positions.append((rotation, current_position, zero_counter))
 
         if current_position == DIAL_MIN:
             zero_counter += 1
