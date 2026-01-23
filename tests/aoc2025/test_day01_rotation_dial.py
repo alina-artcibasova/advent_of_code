@@ -46,18 +46,18 @@ def test_calculate_change_and_increment_for_rotation(rotation, change, increment
 def test_day01_1(test_input):
     positions, zero_counter = day01_1(50, test_input)
     assert positions == [
-        ("L68", 82),
-        ("L30", 52),
-        ("R48", 0),
-        ("L5", 95),
-        ("R60", 55),
-        ("L55", 0),
-        ("L1", 99),
-        ("L99", 0),
-        ("R14", 14),
-        ("L82", 32),
-        ("R1000", 32),
-        ("L1000", 32),
+        ("L68", 82, 0),
+        ("L30", 52, 0),
+        ("R48", 0, 0),
+        ("L5", 95, 1),
+        ("R60", 55, 1),
+        ("L55", 0, 1),
+        ("L1", 99, 2),
+        ("L99", 0, 2),
+        ("R14", 14, 3),
+        ("L82", 32, 3),
+        ("R1000", 32, 3),
+        ("L1000", 32, 3),
     ]
     assert zero_counter == 3
 
