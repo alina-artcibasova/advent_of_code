@@ -13,6 +13,7 @@ def read_data_01(file_name: str) -> list[str]:
 
 
 def calculate_change_and_increment_for_rotation(rotation: str) -> tuple[int, int]:
+    """Take in rotation string and calculate corresponding value change (absolute) and an increment (based on direction)."""
     if "L" in rotation:
         change = int(rotation.replace("L", ""))
         increment = -(change % DIAL_SIZE)
