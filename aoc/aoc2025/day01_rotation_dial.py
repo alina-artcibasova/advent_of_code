@@ -24,7 +24,7 @@ def calculate_change_and_increment_for_rotation(rotation: str) -> tuple[int, int
     return change, increment
 
 
-def day01_1(
+def day01_1_dial_at_0_after_rotation(
     current_position: int, lines: list[str]
 ) -> tuple[list[tuple[str, int]], int]:
     """Solve first part of the puzzle for day01."""
@@ -49,7 +49,7 @@ def day01_1(
     return positions, zero_counter
 
 
-def day01_2(
+def day01_2_dial_at_0_after_any_click(
     current_position: int, lines: list[str]
 ) -> tuple[list[tuple[str, int]], int]:
     """Solve second part of the puzzle for day01."""
@@ -87,24 +87,24 @@ if __name__ == "__main__":
     lines = read_data_01(file_name)
     # print(lines)
 
-    positions, zero_counter = day01_1(current_position, lines)
+    positions, zero_counter = day01_1_dial_at_0_after_rotation(current_position, lines)
     print("====PART 1====")
     print(positions)
     print(zero_counter)
 
-    positions, zero_counter = day01_2(current_position, lines)
+    positions, zero_counter = _dial_at_0_after_any_click(current_position, lines)
     print("====PART 2====")
     print(positions)
     print(zero_counter)
 
     # file_name = "data/aoc2025/input01_puzzle.txt"
     # lines = read_data_01(file_name)
-    # positions, zero_counter = day01_1(current_position, lines)
+    # positions, zero_counter = day01_1_dial_at_0_after_rotation(current_position, lines)
     # print("====PART 1====")
     # # print(positions)
     # print(zero_counter)
 
     # print("====PART 2====")
-    # positions, zero_counter = day01_2(current_position, lines)
+    # positions, zero_counter = _dial_at_0_after_any_click(current_position, lines)
     # # print(positions)
     # print(zero_counter)
