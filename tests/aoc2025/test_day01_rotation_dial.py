@@ -1,7 +1,7 @@
 from aoc.aoc2025.day01_rotation_dial import (
     read_data_01,
-    day01_1,
-    day01_2,
+    day01_1_dial_at_0_after_rotation,
+    day01_2_dial_at_0_after_any_click,
     calculate_change_and_increment_for_rotation,
 )
 import pytest
@@ -43,8 +43,8 @@ def test_calculate_change_and_increment_for_rotation(rotation, change, increment
     assert change, increment == calculate_change_and_increment_for_rotation(rotation)
 
 
-def test_day01_1(test_input):
-    positions, zero_counter = day01_1(50, test_input)
+def test_day01_1_dial_at_0_after_rotation(test_input):
+    positions, zero_counter = day01_1_dial_at_0_after_rotation(50, test_input)
     assert positions == [
         ("L68", 82, 0),
         ("L30", 52, 0),
@@ -62,8 +62,8 @@ def test_day01_1(test_input):
     assert zero_counter == 3
 
 
-def test_day01_2(test_input):
-    positions, zero_counter = day01_2(50, test_input)
+def test_day01_2_dial_at_0_after_any_click(test_input):
+    positions, zero_counter = day01_2_dial_at_0_after_any_click(50, test_input)
     assert positions == [
         ("L68", 82, 1),
         ("L30", 52, 1),
