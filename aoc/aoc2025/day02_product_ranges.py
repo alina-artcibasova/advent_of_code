@@ -1,10 +1,12 @@
-def read_data(file_name):
+def read_data_02(file_name):
+    """Read input data for day02."""
     with open(file_name) as my_file:
         ids = my_file.read()
     return ids.split(",")
 
 
-def day01_1(ids):
+def day02_1(ids):
+    """Solve first part of the puzzle for day01."""
     invalid_ids = []
 
     for id_range in ids:
@@ -21,7 +23,8 @@ def day01_1(ids):
     return invalid_ids
 
 
-def day01_2(ids):
+def day02_2(ids):
+    """Solve second part of the puzzle for day02."""
     invalid_ids = set()
 
     for id_range in ids:
@@ -42,28 +45,28 @@ def day01_2(ids):
 if __name__ == "__main__":
     file_name = "data/input02_test.txt"
     ids = read_data(file_name)
-    invalid_ids = day01_1(ids)
+    invalid_ids = day02_1(ids)
     print("===TEST 1===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/input02_puzzle.txt"
     ids = read_data(file_name)
-    invalid_ids = day01_1(ids)
+    invalid_ids = day02_1(ids)
     print("===PUZZLE 1===")
     # print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/input02_test.txt"
     ids = read_data(file_name)
-    invalid_ids = day01_2(ids)
+    invalid_ids = day02_2(ids)
     print("===TEST 2===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/input02_puzzle.txt"
     ids = read_data(file_name)
-    invalid_ids = day01_2(ids)
+    invalid_ids = day02_2(ids)
     print("===PUZZLE 2===")
     # print(invalid_ids)
     print(sum(invalid_ids))
