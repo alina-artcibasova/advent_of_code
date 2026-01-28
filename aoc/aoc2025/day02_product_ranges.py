@@ -43,29 +43,29 @@ def day02_2(ids):
 
 
 if __name__ == "__main__":
-    file_name = "data/input02_test.txt"
-    ids = read_data(file_name)
+    file_name = "data/aoc2025/input02_test.txt"
+    ids = read_data_02(file_name)
     invalid_ids = day02_1(ids)
     print("===TEST 1===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
-    file_name = "data/input02_puzzle.txt"
-    ids = read_data(file_name)
+    file_name = "data/aoc2025/input02_puzzle.txt"
+    ids = read_data_02(file_name)
     invalid_ids = day02_1(ids)
     print("===PUZZLE 1===")
     # print(invalid_ids)
     print(sum(invalid_ids))
 
-    file_name = "data/input02_test.txt"
-    ids = read_data(file_name)
+    file_name = "data/aoc2025/input02_test.txt"
+    ids = read_data_02(file_name)
     invalid_ids = day02_2(ids)
     print("===TEST 2===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
-    file_name = "data/input02_puzzle.txt"
-    ids = read_data(file_name)
+    file_name = "data/aoc2025/input02_puzzle.txt"
+    ids = read_data_02(file_name)
     invalid_ids = day02_2(ids)
     print("===PUZZLE 2===")
     # print(invalid_ids)
