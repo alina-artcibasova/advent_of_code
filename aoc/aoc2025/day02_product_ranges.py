@@ -2,7 +2,7 @@ def read_data_02(file_name):
     """Read input data for day02."""
     with open(file_name) as my_file:
         ids = my_file.read()
-    return ids.split(",")
+    return ids.strip().split(",")
 
 
 def day02_1(ids):
