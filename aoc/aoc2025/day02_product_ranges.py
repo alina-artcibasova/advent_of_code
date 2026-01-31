@@ -5,7 +5,7 @@ def read_data_02(file_name):
     return ids.strip().split(",")
 
 
-def day02_1(ids):
+def day02_1_repeat_twice(ids):
     """Solve first part of the puzzle for day01."""
     invalid_ids = []
 
@@ -23,7 +23,7 @@ def day02_1(ids):
     return invalid_ids
 
 
-def day02_2(ids):
+def day02_2_repeat_twice_or_more(ids):
     """Solve second part of the puzzle for day02."""
     invalid_ids = set()
 
@@ -45,28 +45,28 @@ def day02_2(ids):
 if __name__ == "__main__":
     file_name = "data/aoc2025/input02_test.txt"
     ids = read_data_02(file_name)
-    invalid_ids = day02_1(ids)
+    invalid_ids = day02_1_repeat_twice(ids)
     print("===TEST 1===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/aoc2025/input02_puzzle.txt"
     ids = read_data_02(file_name)
-    invalid_ids = day02_1(ids)
+    invalid_ids = day02_1_repeat_twice(ids)
     print("===PUZZLE 1===")
     # print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/aoc2025/input02_test.txt"
     ids = read_data_02(file_name)
-    invalid_ids = day02_2(ids)
+    invalid_ids = day02_2_repeat_twice_or_more(ids)
     print("===TEST 2===")
     print(invalid_ids)
     print(sum(invalid_ids))
 
     file_name = "data/aoc2025/input02_puzzle.txt"
     ids = read_data_02(file_name)
-    invalid_ids = day02_2(ids)
+    invalid_ids = day02_2_repeat_twice_or_more(ids)
     print("===PUZZLE 2===")
     # print(invalid_ids)
     print(sum(invalid_ids))
