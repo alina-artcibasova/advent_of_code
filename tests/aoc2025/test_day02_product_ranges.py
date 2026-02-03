@@ -1,7 +1,7 @@
 from aoc.aoc2025.day02_product_ranges import (
     read_data_02,
-    day02_1,
-    day02_2,
+    day02_1_repeat_twice,
+    day02_2_repeat_twice_or_more,
 )
 import pytest
 import os
@@ -27,3 +27,16 @@ def test_input():
 def test_read_data_02(test_input):
     read_lines = read_data_02(os.getcwd() + "/data/aoc2025/input02_test.txt")
     assert read_lines == test_input
+
+
+def test_day02_1_repeat_twice(test_input):
+    assert day02_1_repeat_twice(test_input) == [
+        11,
+        22,
+        99,
+        1010,
+        1188511885,
+        222222,
+        446446,
+        38593859,
+    ]
