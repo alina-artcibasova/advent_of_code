@@ -40,3 +40,21 @@ def test_day02_1_repeat_twice(test_input):
         446446,
         38593859,
     ]
+
+
+def test_day02_2_repeat_twice_or_more(test_input):
+    assert day02_2_repeat_twice_or_more(test_input) == {
+        99,
+        38593859,
+        999,
+        11,
+        1188511885,
+        222222,
+        111,
+        446446,
+        824824824,
+        1010,
+        22,
+        565656,
+        2121212121,
+    }
