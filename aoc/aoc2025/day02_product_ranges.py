@@ -7,7 +7,7 @@ def read_data_02(file_name):
 
 def day02_1_repeat_twice(ids):
     """Solve first part of the puzzle for day01."""
-    invalid_ids = []
+    invalid_ids = set()
 
     for id_range in ids:
         start, end = (int(item) for item in id_range.split("-"))
@@ -18,7 +18,7 @@ def day02_1_repeat_twice(ids):
                 first_half = str(i)[:half]
                 second_half = str(i)[half:]
                 if first_half == second_half:
-                    invalid_ids.append(i)
+                    invalid_ids.add(i)
 
     return invalid_ids
 
