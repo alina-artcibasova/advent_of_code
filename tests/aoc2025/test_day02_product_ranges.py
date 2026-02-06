@@ -30,7 +30,7 @@ def test_read_data_02(test_input):
 
 
 def test_day02_1_repeat_twice(test_input):
-    assert day02_1_repeat_twice(test_input) == [
+    assert day02_1_repeat_twice(test_input) == {
         11,
         22,
         99,
@@ -39,7 +39,7 @@ def test_day02_1_repeat_twice(test_input):
         222222,
         446446,
         38593859,
-    ]
+    }
 
 
 def test_day02_2_repeat_twice_or_more(test_input):
